@@ -1,0 +1,53 @@
+$ docker-compose up -d
+$ docker compose exec app bash
+
+# php artisan route:list
++--------+----------+----------+------+---------+--------------+
+| Domain | Method   | URI      | Name | Action  | Middleware   |
++--------+----------+----------+------+---------+--------------+
+|        | GET|HEAD | /        |      | Closure | web          |
+|        | GET|HEAD | api/user |      | Closure | api,auth:api |
++--------+----------+----------+------+---------+--------------+
+
+# php artisan tinker
+Psy Shell v0.11.1 (PHP 7.4.1 — cli) by Justin Hileman
+>>> $name = 'Laravel'
+=> "Laravel"
+>>> echo 'Hello ' . $name;
+Hello Laravel⏎
+
+# php artisan make:migration create_books_table --create=books
+
+# php artisan migrate
+
+前回のmigrateを取り消し
+# php artisan migrate:rollback
+
+dbコンテナに接続
+$ docker compose exec db bash
+# mysql -u root -p 
+root
+
+mysql> show databases;
+mysql> use db_name;
+mysql> show tables;
+mysql> desc books;
++------------+-----------------+------+-----+---------+----------------+
+| Field      | Type            | Null | Key | Default | Extra          |
++------------+-----------------+------+-----+---------+----------------+
+| id         | bigint unsigned | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(50)     | NO   |     | NULL    |                |
+| price      | int             | NO   |     | NULL    |                |
+| author     | varchar(50)     | YES  |     | NULL    |                |
+| created_at | timestamp       | YES  |     | NULL    |                |
+| updated_at | timestamp       | YES  |     | NULL    |                |
++------------+-----------------+------+-----+---------+----------------+
+6 rows in set (0.01 sec)
+
+mysql> \q
+
+# php artisan make:model Book
+
+# php artisan make:seeder BooksTableSeeder
+
+# php artisan db:seed
