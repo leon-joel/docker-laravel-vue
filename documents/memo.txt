@@ -39,6 +39,7 @@ mysql> desc books;
 | name       | varchar(50)     | NO   |     | NULL    |                |
 | price      | int             | NO   |     | NULL    |                |
 | author     | varchar(50)     | YES  |     | NULL    |                |
+
 | created_at | timestamp       | YES  |     | NULL    |                |
 | updated_at | timestamp       | YES  |     | NULL    |                |
 +------------+-----------------+------+-----+---------+----------------+
@@ -51,3 +52,7 @@ mysql> \q
 # php artisan make:seeder BooksTableSeeder
 
 # php artisan db:seed
+
+# php artisan make:controller BookController
+
+
