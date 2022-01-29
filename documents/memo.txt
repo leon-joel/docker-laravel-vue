@@ -55,4 +55,4 @@ mysql> \q
 
 # php artisan make:controller BookController
 
-
+# php artisan make:request BookRequest
